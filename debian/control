@@ -1,0 +1,91 @@
+Source: kldap
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Norbert Preining <norbert@preining.info>,
+           Sandro Knauß <hefee@debian.org>,
+Build-Depends: cmake (>= 3.16~),
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 5.83.0~),
+               gettext,
+               libkf5doctools-dev (>= 5.83.0~),
+               libkf5i18n-dev (>= 5.83.0~),
+               libkf5kio-dev (>= 5.83.0~),
+               libkf5wallet-dev (>= 5.71.0~),
+               libkf5widgetsaddons-dev (>= 5.83.0~),
+               libldap2-dev,
+               libsasl2-dev,
+               pkg-kde-tools (>> 0.15.15),
+               qt5keychain-dev,
+               qtbase5-dev,
+Standards-Version: 4.6.0
+Homepage: https://invent.kde.org/pim/kldap
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kldap
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kldap.git
+Rules-Requires-Root: no
+
+Package: kio-ldap
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: library for accessing LDAP - kio slave
+ This is a library for accessing LDAP with a convenient Qt style C++ API.
+ LDAP (Lightweight Directory Access Protocol) is an application protocol
+ for querying and modifying directory services running over TCP/IP.
+ .
+ This package contains the KIO slave.
+
+Package: libkf5ldap-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Arch independent data forlibrary for accessing LDAP
+ This is a library for accessing LDAP with a convenient Qt style C++ API.
+ LDAP (Lightweight Directory Access Protocol) is an application protocol
+ for querying and modifying directory services running over TCP/IP.
+ .
+ This package contains the arch independent data for KLdap.
+
+Package: libkf5ldap-dev
+Architecture: any
+Multi-Arch: same
+Depends: libkf5ldap5abi1 (= ${binary:Version}),
+         libldap2-dev,
+         libsasl2-dev,
+         qtbase5-dev,
+         ${misc:Depends},
+Description: library for accessing LDAP - development files
+ This is a library for accessing LDAP with a convenient Qt style C++ API.
+ LDAP (Lightweight Directory Access Protocol) is an application protocol
+ for querying and modifying directory services running over TCP/IP.
+ .
+ This package contains the development files.
+Section: libdevel
+
+Package: libkf5ldap-doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: library for accessing LDAP (documentation)
+ This is a library for accessing LDAP with a convenient Qt style C++ API.
+ LDAP (Lightweight Directory Access Protocol) is an application protocol
+ for querying and modifying directory services running over TCP/IP.
+ .
+ This package contains the documentation files.
+Section: doc
+
+Package: libkf5ldap5abi1
+X-Debian-ABI: 1
+X-CMake-Target: KF5Ldap
+Architecture: any
+Multi-Arch: same
+Depends: libkf5ldap-data (>= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: library for accessing LDAP
+ This is a library for accessing LDAP with a convenient Qt style C++ API.
+ LDAP (Lightweight Directory Access Protocol) is an application protocol
+ for querying and modifying directory services running over TCP/IP.
+ .
+ This package is part of the KDE Development Platform PIM libraries module.
+Provides: ${ABI:VirtualPackage}
