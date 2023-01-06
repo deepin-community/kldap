@@ -1,3 +1,9 @@
+kldap (21.08.1.1-deepin1) unstable; urgency=medium
+
+  * Fix build with GCC 12
+
+ -- Clansty <i@gao4.pw>  Fri, 06 Jan 2023 15:57:15 +0000
+
 kldap (21.08.1-deepin1) unstable; urgency=medium
 
   * Rebuild

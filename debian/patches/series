@@ -1,1 +1,2 @@
 enable_debianabimanager.diff
+fix-gcc12.patch
